@@ -13,6 +13,8 @@ Ideas for what program can accomplish:
 
 ## Implementation: 
 
+Execute in CLI to initiate program: python3 main.py instruction_input.txt data_input.txt
+
 ### Functions
 
   #### * read_instructions()
@@ -163,13 +165,18 @@ Ideas for what program can accomplish:
     The MIPS Destination or Source Register is linked to each line in data_input.txt file by index position. 
     
     Example: 
-      > Line 1 in 'data_input.txt' file is location '00000001' with value '4' at index 0 and MIPS 'R1' is also index 0   
-      > Line 2 in 'data_input.txt' file is location '00000010' with value '5' at index 1 and MIPS 'R2' is also index 1
+      > Line 1 in 'data_input.txt' file is location '00000001' with value '4' at index 0 and MIPS 'R1' (Key) is also index 0 (value).   
+      > Line 2 in 'data_input.txt' file is location '00000010' with value '5' at index 1 and MIPS 'R2' (Key) is also index 1 (value).
      
   #### * local_address
   
     Dictionary list used to to represent location of a value in Memory Register of CPU.  
-    First line of data_input.txt file reads as '00000001,4', which is interpreted as '00000001' being location address of value '4'. 
+    First line of data_input.txt file reads as '00000001,4', which is interpreted as '00000001' (Key) being location address of value '4' (value). 
     
+ Requirements
+ 
+ * sys
+ * time 
+ * random
     
 
