@@ -43,7 +43,7 @@ Ideas for what program can accomplish:
     dictonary is printed to similate information has been loaded to Memory register 
 
     [else] statement is printed "Memory before halt: " with information contained in dictionary 'memo_reg'. The dictionary is then cleared using and 
-    statement printed "Memory after HALT: " with empty dictionary to symbolize clearing of memory. 
+    statement printed "Memory after HALT: " as console output to the user documenting clearing of memory. 
 
 
   #### * addi()
@@ -66,8 +66,8 @@ Ideas for what program can accomplish:
     
     The following 2 statements are then printed: 
     
-    "The answer for {value_1[0]} + {value_2} is: {answer}" - mentioning the 2 values and answer to equation.
-    "Addi Function completed successfully" - similate operation has been completed.
+    "The answer for {value_1[0]} + {value_2} is: {answer}" - console output to the user documenting the 2 values and answer to equation.
+    "Addi Function completed successfully" - console output to the user documenting operation has been completed.
 
 
   #### * add()
@@ -92,13 +92,40 @@ Ideas for what program can accomplish:
     
     The following 2 statements are then printed: 
     
-    "The answer for {value[0]} + {value[1]} is: {answer}" - mentioning the 2 values and answer to equation.
-    "Add Function completed successfully" - similate operation has been completed.
+    "The answer for {value[0]} + {value[1]} is: {answer}" - Console output to the user documenting the 2 values and answer to equation.
+    "Add Function completed successfully" - Console output to the user documentingoperation has been completed.
     
   #### * jump()
+  
+    Functions takes one argument that contain the line of instructions received from read_instructions() and below 2 lines are prineted:
+    
+      "Jump Function initiated" - to indicate process has started 
+      "Opcode received in jump: " - with the line of instructions. Example 'J', '8'.
+      
+    The purpose is only to simulation output by randomly selecting a number between 0 and 6, which is saved to variable 'select_jump'.
+    'select_jump' is then used as an index to retrieve key/value from dictionary 'memo_reg'. 
+    
+    The following two lines are then printed out: 
+    
+      "Using Jump function register went to register address {register} with Value {value}" - to similate there was a jump to another Memory             Register location.
+      "Jump Function completed successfully" - Console output to the user documenting operation has been completed.
 
   #### * value_from_cache()
+  
+    Function takes a list as argument and the list would contain keys to access values in variable 'loca_address'. 
+    
+    Below message is printed out to similate operation has started:
+    
+      "Retrieving information from register initiated"
 
+    A for loop is used to retrieve keys from argument list and the value in variable 'local_address' would provide index position
+    This index positions are then used to retrieve Memory Register location in variable 'memo_reg' and append to list in variable values.
+    
+    Below statement is then printed out:
+    
+      "Retrieved value is {values} from location {register}." - Console output to the user documenting the information retrieved 
+      "Information successfully retrieved" - Console output to the user documenting process has been successful
+      "Information sent to Operand" - Console output to the user documenting location/value has been sent to Operation Function 
 
   #### * write_to_register()
 
@@ -117,14 +144,32 @@ Ideas for what program can accomplish:
     similate operation has been completed.
 
   #### * time_delay()
+  
+    Used a 4 second delay on concole output in order for user to read as ISA instructions are being processed. 
 
 ### Variables 
 
   #### * open_date
   
+    Used to save information retrieved from data_input.txt file
+  
   #### * open_instr
+  
+    Used to save information retrieved from instructions_input.txt file
   
   #### * memo_reg
   
+    Dictionary list used to link ISA/MIPS instruction with Memory Location imported from data_input.txt file.
+    The MIPS Destination or Source Register is linked to each line in data_input.txt file by index position. 
+    
+    Example: 
+      > Line 1 in 'data_input.txt' file is location '00000001' with value '4' at index 0 and MIPS 'R1' is also index 0   
+      > Line 2 in 'data_input.txt' file is location '00000010' with value '5' at index 1 and MIPS 'R2' is also index 1
+     
   #### * local_address
+  
+    Dictionary list used to to represent location of a value in Memory Register of CPU.  
+    First line of data_input.txt file reads as '00000001,4', which is interpreted as '00000001' being location address of value '4'. 
+    
+    
 
